@@ -93,34 +93,7 @@ The schedule for the different curricula are listed here:
 
 
 {% elsif info.curriculum == "dc-image-processing" %}
-<div class="row">
-  <div class="col-md-6">
-    <h3>Day 1</h3>
-    <table class="table table-striped">
-      <tr>
-	<td>Before starting</td>
-	<td><a href="{{ site.pre_survey }}{{ site.github.project_title }}" target="_blank">Pre-workshop survey</a></td>
-      </tr>
-      <tr><td>Morning and afternoon</td> <td> <a href="https://github.com/esciencecenter-digital-skills/image-processing">Schedule online</a></td></tr>
-      
-    </table>
-  </div>
-  <div class="col-md-6">
-    <h3>Day 2</h3>
-    <table class="table table-striped">
-      <tr><td>Morning and afternoon</td> <td> <a href="https://github.com/esciencecenter-digital-skills/image-processing">Schedule online</a></td></tr>
-      <tr>
-
-	<td>Evening</td>
-	<td><a href="{{ site.post_survey }}{{ site.github.project_title }}" target="_blank">Post-workshop survey</a></td>
-      </tr>
-      <tr>
-	<td> </td>
-	<td> END </td>
-      </tr>
-    </table>
-  </div>
-</div>
+{% remote_include {{lesson_meta}}/schedule.md %}
 
 {% elsif info.curriculum == "dc-genomics" %}
 
