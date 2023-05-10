@@ -101,25 +101,6 @@ It looks like you are setting up a website for a Data Carpentry curriculum but y
 Check SWC curriculum
 {% endcomment %}
 
-{% if info.carpentry == "swc" %}
-{% unless info.curriculum == "swc-inflammation" or info.curriculum == "swc-gapminder" %}
-<div class="alert alert-warning">
-It looks like you are setting up a website for a Software Carpentry curriculum but you haven't specified the curriculum type in the <code>_data/data.csv</code> file (current value in <code>_data/data.csv</code>: "<strong>{{ info.curriculum }}</strong>", possible values: <code>swc-inflammation</code>, or <code>swc-gapminder</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
-</div>
-{% endunless %}
-{% endif %}
-
-{% comment %}
-Check DS curriculum
-{% endcomment %}
-
-{% if info.carpentry == "ds" %}
-{% unless info.curriculum == "ds-cr" or info.curriculum == "ds-docker" or info.curriculum == "ds-dl-intro" or info.curriculum == "ds-gpu" or info.curriculum == "ds-parallel" or info.curriculum == "ds-rpackaging" or info.curriculum == "ds-geospatial"%}
-<div class="alert alert-warning">
-It looks like you are setting up a website for a Digital Skills curriculum but you haven't specified the curriculum type in the <code>_data/data.csv</code> file (current value in <code>_data/data.csv</code>: "<strong>{{ info.curriculum }}</strong>", possible values: <code>ds-cr</code>, <code>ds-docker</code>, <code>ds-dl-intro</code>, <code>ds-gpu</code>, <code>ds-parallel</code> or <code>ds-rpackaging</code>). After editing this file, you need to run <code>make serve</code> again to see the changes reflected.
-</div>
-{% endunless %}
-{% endif %}
 
 {% comment %}
 EVENTBRITE
@@ -150,16 +131,11 @@ INTRODUCTION
 Edit the general explanatory paragraph below if you want to change
 the pitch.
 {% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/intro.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/intro.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/intro.html %}
-{% elsif info.carpentry == "ds" %}
+
+
 {% include ds/intro.md %}
 {% remote_include {{lesson_meta}}/description.md %}
-{% endif %}
+
 
 {% comment %}
 AUDIENCE
@@ -167,18 +143,12 @@ AUDIENCE
 Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/who.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/who.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/who.html %}
-{% elsif info.carpentry == "ds" %}
+
 <div style="display: flex"><div>
      <strong>Who:&nbsp;</strong>
      </div>
      <div markdown=1>{% remote_include {{lesson_meta}}/who.md %}</div></div>
-{% endif %}
+
 
 {% comment %}
 LOCATION
@@ -336,7 +306,7 @@ CODE OF CONDUCT
 {% endcomment %}
 <h2 id="code-of-conduct">Code of Conduct</h2>
 
-{% if info.carpentry == "ds" %}
+{% if info.carpentry == "dc" %}
 <p>
 Participants are expected to follow these guidelines:
 <ul>
@@ -478,10 +448,6 @@ during the workshop.
 {% if info.carpentry == "swc" %}
 {% include swc/setup.html %}
 {% elsif info.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif info.carpentry == "ds" %}
 {% capture content %}
 {% remote_include {{lesson_meta}}/setup.md %}
 {% endcapture %}
@@ -493,6 +459,8 @@ during the workshop.
 {% else %}
   {{ content }}
 {% endif %}
+{% elsif info.carpentry == "lc" %}
+{% include lc/setup.html %}
 {% elsif info.carpentry == "pilot" %}
 Please check the "Setup" page of
 [the lesson site]({{ site.lesson_site }}) for instructions to follow
