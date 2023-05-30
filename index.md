@@ -314,7 +314,7 @@ Participants are expected to follow these guidelines:
   <li>Show courtesy and respect towards other community members</li>
 </ul>
 </p>
-{% else %}
+
 <p>
 Everyone who participates in Carpentries activities is required to conform to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Code of Conduct</a>. This document also outlines how to report an incident if needed.
 </p>
